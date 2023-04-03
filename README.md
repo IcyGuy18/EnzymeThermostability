@@ -12,4 +12,7 @@ Rather than taking the time to apply data cleaning to the training dataset, we e
 5. Various **substitution matrices** were used to calculate single-point substitution mutation scores. Apart from the commonly applied BLOSUM100 matrix, we tested with other substitution matrices, including but not limited to PAM1, LG, WAG, and WAG* matrices. In our findings, substitution matrices, while posing a positive correlation with the melting temperature, was not significant enough to have a noticeable effect in the overall results.
 
 # Results
-In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. Each of the scores were ranked statistically and their scores were adjusted with the following formula: $\f(x) = 1-(1/(1+e^(-x/s_f)))$
+In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. Each of the scores were ranked statistically and their scores were adjusted with the following formula:
+```math
+f(x) = 1-(1/(1+e^(-x/s_f)))
+```

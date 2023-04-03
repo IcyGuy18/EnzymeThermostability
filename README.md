@@ -13,6 +13,10 @@ Rather than taking the time to apply data cleaning to the training dataset, we e
 6. A Hydrophobicity matrix score was also used to account for the hydrophobic amino acid substitution within the protein sequences.
 
 # Results
-In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. The matrix substitution scores were capped off to have avalue anywhere between $-{inf}$ and 0, and were then ranked statistically and adjusted with a modified formula of sigmoid function:
+In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. The matrix substitution scores were capped off to have a value anywhere between $-{inf}$ and 0, and were then ranked statistically and adjusted with a modified formula of sigmoid function:
 
 # $$f(x) = 1 - {1 \over 1+e^{-x/s_f}}$$
+
+The obtained scoring ranks from each configuration were multiplied first, and then passed through a cube root to obtain a more streamlined and even distribution of the normalised values through the following equation:
+
+# $$f(w, x, y, z) = (w * x * y * z)^{1/3}$$

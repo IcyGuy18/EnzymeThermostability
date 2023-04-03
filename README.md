@@ -14,5 +14,5 @@ Rather than taking the time to apply data cleaning to the training dataset, we e
 # Results
 In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. Each of the scores were ranked statistically and their scores were adjusted with the following formula:
 ```math
-f(x) = 1-(1/(1+e^(-x/s_f)))
+f(x) = 1-(1/1+e^-x/s_f
 ```

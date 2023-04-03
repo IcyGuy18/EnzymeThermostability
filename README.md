@@ -1,5 +1,6 @@
 # Novozymes Enzyme Stability Prediction
 This is a project from a Kaggle competition hosted by Novozymes (more here: https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction), where the objective was to accurately predict the thermostability of an enzyme by only being given the nucleic sequence, the pH of the solution, and the reference to each of the protein in the dataset. The training dataset consisted of ~32k protein sequences and they were used to predict the melting temperature of a wildtype enzyme and its 2,413 variants.
+
 This was the first time competing in a Kaggle competition with my team member. The link to the IPYNB file which I contributed to can be found here for easier viewing: https://www.kaggle.com/code/icyguy18/i190695. Most of the research on various topics had been done, and whichever not included within the Jupyter notebook, have been our team's own contribution to the problem. The work was not done alone, as various other contributions helped to identify the best procedure or ensemble of procedures. In large part, existing deep learning models were used to identify and predict values required for more accurate melting temperature prediction.
 
 # Working
@@ -20,6 +21,8 @@ In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG subst
 The obtained scoring ranks from each configuration were multiplied first, and then passed through a cube root to obtain a more streamlined and even distribution of the normalised values through the following equation:
 
 # $$f(w, x, y, z) = (w * x * y * z)^{1/3}$$
+
+# Results
 
 During the competition, my team member and I achieved a Spearmann's Correlation Coefficient of 0.486 on half of the dataset, and after evaluation with the remaining dataset, the correlation coefficient dropped to 0.42.
 

@@ -10,8 +10,9 @@ Rather than taking the time to apply data cleaning to the training dataset, we e
 3. ThermoNet, another deep learning computation framework, was used to predict ΔΔG values for each of the protein sequence in the testing dataset. Moreover, these scores along with "FastRelax" protocol in Rosetta enabled an ensemble that yielded better predicted results.
 4. AlphaFold V2 was used to generate PDB structures of the point mutation proteins of the wildtype protein, which already had a PDB file provided by Novozymes. These PDB files contain a Debye-Waller factor, or **b-factor** -- i.e. the uncertainty of the displacement of atoms from their positions -- that when used as parameter for confidence of prediction, happens to significantly correlate with the melting temperatures of the protein.
 5. Various **substitution matrices** were used to calculate single-point substitution mutation scores. Apart from the commonly applied BLOSUM100 matrix, we tested with other substitution matrices, including but not limited to PAM1, LG, WAG, and WAG* matrices. In our findings, substitution matrices, while posing a positive correlation with the melting temperature, was not significant enough to have a noticeable effect in the overall results.
+6. A Hydrophobicity matrix score was also used to account for the hydrophobic amino acid substitution within the protein sequences.
 
 # Results
-In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. Each of the scores were ranked statistically and their scores were adjusted with a modified formula of sigmoid function:
+In the end, an ensemble of relaxed Rosetta scores, ΔΔG, B-factor, and LG substitution matrices were used. The matrix substitution scores were capped off to have avalue anywhere between $-{inf}$ and 0, and were then ranked statistically and adjusted with a modified formula of sigmoid function:
 
 # $$f(x) = 1 - {1 \over 1+e^{-x/s_f}}$$
